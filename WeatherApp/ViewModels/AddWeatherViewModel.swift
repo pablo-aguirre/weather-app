@@ -7,9 +7,8 @@
 
 import Foundation
 
-@Observable
-class AddWeatherViewModel {
-    var city: String = ""
+class AddWeatherViewModel: ObservableObject {
+    @Published var city: String = ""
     
     func save(completion: @escaping (WeatherViewModel) ->  Void) {
         Webservice().getWeatherByCity(city: city) { result in
